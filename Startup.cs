@@ -88,6 +88,8 @@ namespace MicroServiceTemplate
             {
                 endpoints.MapControllers();
             });
+
+            app.UseHealthChecks("/health");
         }
     }
 }
