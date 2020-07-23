@@ -1,15 +1,15 @@
 ﻿apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: microservicetemplate
-  namespace: template
+  name: $safeprojectname$
+  namespace: $safeprojectname$-namespace
   labels:
-    app: microservicetemplate
+    app: $safeprojectname$
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: microservicetemplate
+      app: $safeprojectname$
   strategy:
     rollingUpdate:
       maxSurge: 1
@@ -18,11 +18,11 @@ spec:
   template:
     metadata:
       labels:
-        app: microservicetemplate
+        app: $safeprojectname$
     spec:
       containers:
-      - name: microservicetemplate
-        image: microservicetemplate:latest
+      - name: $safeprojectname$
+        image: $safeprojectname$:latest
         env:
         - name: BaseConfiguration__SwaggerIsEnabled
           value: "true"
@@ -50,10 +50,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: microservicetemplate-service
-  namespace: template
+  name: $safeprojectname$-service
+  namespace: $safeprojectname$-namespace
   labels:
-    app: microservicetemplate
+    app: $safeprojectname$
 spec:
   type: NodePort
   ports:
@@ -62,4 +62,4 @@ spec:
     nodePort: 30035 # external port
     protocol: TCP
   selector:
-    app: microservicetemplate
+    app: $safeprojectname$

@@ -9,17 +9,17 @@ RUN mkdir obj
 # Copy csproj and restore as distinct layers
 COPY . ./
 
-RUN dotnet restore MicroServiceTemplate.sln
+RUN dotnet restore $safeprojectname$.sln
 
 # run unit tets - build will fail if tests fail
 #RUN dotnet test Tests
 
 # build
-RUN dotnet publish MicroServiceTemplate.csproj -c Release -o /app/out
+RUN dotnet publish $safeprojectname$.csproj -c Release -o /app/out
 
 # Build runtime image
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-bionic AS runtime
 EXPOSE 8080
 WORKDIR /app
 COPY --from=build-env /app/out .
-ENTRYPOINT ["dotnet", "MicroServiceTemplate.dll"]
+ENTRYPOINT ["dotnet", "$safeprojectname$.dll"]
