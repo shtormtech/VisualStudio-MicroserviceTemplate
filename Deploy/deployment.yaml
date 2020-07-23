@@ -1,0 +1,65 @@
+﻿apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: microservicetemplate
+  namespace: template
+  labels:
+    app: microservicetemplate
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: microservicetemplate
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: microservicetemplate
+    spec:
+      containers:
+      - name: microservicetemplate
+        image: microservicetemplate:latest
+        env:
+        - name: BaseConfiguration__SwaggerIsEnabled
+          value: "true"
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 30
+          timeoutSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 10
+          timeoutSeconds: 10
+      imagePullSecrets:
+      - name: secret
+
+# ВАЖНО: три дефиса делят файл, как бы на два отдельных ямла
+---
+ 
+apiVersion: v1
+kind: Service
+metadata:
+  name: microservicetemplate-service
+  namespace: template
+  labels:
+    app: microservicetemplate
+spec:
+  type: NodePort
+  ports:
+  - port: 8080 # container port
+    targetPort: 8080 # container port
+    nodePort: 30035 # external port
+    protocol: TCP
+  selector:
+    app: microservicetemplate
