@@ -4,6 +4,9 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
+using MicroServiceTemplate.Interfaces;
+using MicroServiceTemplate.Services;
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -35,6 +38,8 @@ namespace MicroServiceTemplate
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IWeatherForecastService, WeatherForecastService>();
+
             services.AddControllers();
             services.AddHealthChecks();
             services.AddOptions();
