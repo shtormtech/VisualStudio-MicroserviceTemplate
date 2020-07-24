@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroServiceTemplate", "MicroServiceTemplate.csproj", "{EE22C360-731D-487E-BB58-D70B63C4305C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroserviceTemplate", "MicroserviceTemplate\MicroserviceTemplate.csproj", "{EE22C360-731D-487E-BB58-D70B63C4305C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceTemplateExtension", "MicroserviceTemplateExtension\MicroserviceTemplateExtension.csproj", "{DEA01C5F-E92C-4193-8124-1C7EC3EE6883}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{EE22C360-731D-487E-BB58-D70B63C4305C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE22C360-731D-487E-BB58-D70B63C4305C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE22C360-731D-487E-BB58-D70B63C4305C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEA01C5F-E92C-4193-8124-1C7EC3EE6883}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEA01C5F-E92C-4193-8124-1C7EC3EE6883}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEA01C5F-E92C-4193-8124-1C7EC3EE6883}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEA01C5F-E92C-4193-8124-1C7EC3EE6883}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
