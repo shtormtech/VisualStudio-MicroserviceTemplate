@@ -11,7 +11,7 @@
         <LocationField>Enabled</LocationField>
         <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
         <CreateInPlace>true</CreateInPlace>
-        <Icon>__TemplateIcon.ico</Icon>
+        <Icon>network.ico</Icon>
         <LanguageTag>C#</LanguageTag>
         <PlatformTag>Windows</PlatformTag>
         <PlatformTag>Linux</PlatformTag>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="MicroserviceTemplateExtension.af15456e-7dd2-4c3e-8943-898e7ab70792" Version="0.4" Language="en-US" Publisher="IvanVarnavskiy" />
+        <Identity Id="MicroserviceTemplateExtension.af15456e-7dd2-4c3e-8943-898e7ab70792" Version="0.5" Language="en-US" Publisher="Ivan Varnavskiy" />
         <DisplayName>MicroserviceTemplateExtension</DisplayName>
         <Description xml:space="preserve">Шаблон для старта разработки микро-сервиса</Description>
     </Metadata>
