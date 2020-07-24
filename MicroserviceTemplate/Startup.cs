@@ -54,8 +54,8 @@ namespace MicroServiceTemplate
                     c.SwaggerDoc("v0", new OpenApiInfo
                     {
                         Version = "v0",
-                        Title = "Swagger MicroServiceTemplate",
-                        Description = "Swagger MicroServiceTemplate (ASP.NET Core 3.1)"
+                        Title = "Swagger $safeprojectname$",
+                        Description = "Swagger $safeprojectname$ (ASP.NET Core 3.1)"
                     });
                     c.CustomSchemaIds(type => type.FullName);
                     var xmlPath = $"{AppContext.BaseDirectory}{Path.DirectorySeparatorChar}{_hostingEnv.ApplicationName}.xml";
@@ -90,7 +90,7 @@ namespace MicroServiceTemplate
                 app.UseSwagger();
                 app.UseSwaggerUI(c =>
                 {
-                    c.SwaggerEndpoint("../swagger/v0/swagger.json", "MicroServiceTemplate API V0");
+                    c.SwaggerEndpoint("../swagger/v0/swagger.json", "$safeprojectname$ API V0");
                     c.RoutePrefix = string.Empty;
                 });
             }
