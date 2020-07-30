@@ -40,7 +40,7 @@ namespace MicroServiceTemplate
         {
             services.AddScoped<IWeatherForecastService, WeatherForecastService>();
 
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson();
             services.AddHealthChecks();
             services.AddOptions();
             services.Configure<BaseConfiguration>(Configuration.GetSection(BaseSectionConfig));
@@ -64,6 +64,7 @@ namespace MicroServiceTemplate
                         c.IncludeXmlComments(xmlPath);
                     }
                 });
+                services.AddSwaggerGenNewtonsoftSupport();
             }
         }
 
