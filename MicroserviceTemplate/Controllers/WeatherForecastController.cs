@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 
 using MicroServiceTemplate.Interfaces;
+using MicroServiceTemplate.Models;
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -27,6 +28,7 @@ namespace MicroServiceTemplate.Controllers
         [HttpGet]
         public async Task<ActionResult<List<WeatherForecast>>> Get(CancellationToken ct)
         {
+            _logger.LogInformation($"GET /WeatherForecast");
             return await weatherForecastService.GetWeatherForecasts(ct);
         }
     }

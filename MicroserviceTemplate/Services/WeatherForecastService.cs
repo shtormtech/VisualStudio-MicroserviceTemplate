@@ -1,4 +1,5 @@
 ﻿using MicroServiceTemplate.Interfaces;
+using MicroServiceTemplate.Models;
 
 using System;
 using System.Collections.Generic;

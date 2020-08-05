@@ -1,6 +1,6 @@
 using System;
 
-namespace MicroServiceTemplate
+namespace MicroServiceTemplate.Models
 {
     public class WeatherForecast
     {
