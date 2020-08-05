@@ -24,8 +24,10 @@ spec:
       - name: $safeprojectname$
         image: $safeprojectname$:latest
         env:
-        - name: BaseConfiguration__SwaggerIsEnabled
+        - name: BaseConfiguration__SwaggerConfig__IsEnabled
           value: "true"
+        - name: BaseConfiguration__SwaggerConfig__EndpointPrefix
+          value: ""
         imagePullPolicy: Always
         ports:
         - containerPort: 8080

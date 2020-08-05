@@ -1,15 +1,14 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
+
+using MicroserviceTemplate.Config;
 
 using MicroServiceTemplate.Interfaces;
 using MicroServiceTemplate.Services;
 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -21,7 +20,7 @@ namespace MicroServiceTemplate
     public class Startup
     {
         const string BaseSectionConfig = "BaseConfiguration";
-        public bool SwaggerIsEnabled => Configuration.GetSection(BaseSectionConfig).Get<BaseConfiguration>().SwaggerIsEnabled;
+        public SwaggerConfig SwaggerConfig => Configuration.GetSection(BaseSectionConfig).Get<BaseConfiguration>().SwaggerConfig;
         private readonly IWebHostEnvironment _hostingEnv;
         public IConfiguration Configuration { get; }
         public Startup(IWebHostEnvironment env)
@@ -46,7 +45,7 @@ namespace MicroServiceTemplate
             services.Configure<BaseConfiguration>(Configuration.GetSection(BaseSectionConfig));
 
             // Add swagger
-            if (SwaggerIsEnabled)
+            if (SwaggerConfig.IsEnabled)
             {
                 services
                 .AddSwaggerGen(c =>
@@ -86,12 +85,27 @@ namespace MicroServiceTemplate
 
             app.UseAuthorization();
 
-            if (SwaggerIsEnabled)
+            if (SwaggerConfig.IsEnabled)
             {
-                app.UseSwagger();
+                app.UseSwagger(c =>
+                {
+                    c.RouteTemplate = "swagger/{documentName}/swagger.json";
+                    c.PreSerializeFilters.Add((swaggerDoc, httpReq) =>
+                    {
+                        //Список серверов нужен для подстановки верного префикса при тестировании API через интерфейс swagger,
+                        //при расположении сервиса за ingress контроллером
+                        //TODO: схемы HTTP и HTTPS принудительно добавлены, так как пока нет возможности узнать верную схему при работе через балансировщик.
+                        //нужно найти вариант самостоятелного определения верной схемы
+                        //p.s. httpReq.Scheme не работает при изменении схемы после балансировщика
+                        swaggerDoc.Servers = new List<OpenApiServer> {
+                            new OpenApiServer { Url = $"http://{httpReq.Host.Value}/{SwaggerConfig.EndpointPrefix.Trim('/')}" },
+                            new OpenApiServer { Url = $"https://{httpReq.Host.Value}/{SwaggerConfig.EndpointPrefix.Trim('/')}" }
+                        };
+                    });
+                });
                 app.UseSwaggerUI(c =>
                 {
-                    c.SwaggerEndpoint("../swagger/v0/swagger.json", "$safeprojectname$ API V0");
+                    c.SwaggerEndpoint($"{SwaggerConfig.EndpointPrefix.TrimEnd('/')}/swagger/v0/swagger.json", "$safeprojectname$ API V0");
                     c.RoutePrefix = string.Empty;
                 });
             }
