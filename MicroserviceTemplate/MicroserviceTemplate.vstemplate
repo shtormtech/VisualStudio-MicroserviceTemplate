@@ -36,6 +36,9 @@
             <Folder Name="Services" TargetFolderName="Services">
                 <ProjectItem ReplaceParameters="true" TargetFileName="WeatherForecastService.cs">WeatherForecastService.cs</ProjectItem>
             </Folder>
+            <Folder Name="Models" TargetFolderName="Models">
+                <ProjectItem ReplaceParameters="true" TargetFileName="WeatherForecast.cs">WeatherForecast.cs</ProjectItem>
+            </Folder>
             <Folder Name="Config" TargetFolderName="Config">
                 <ProjectItem ReplaceParameters="true" TargetFileName="BaseConfiguration.cs">BaseConfiguration.cs</ProjectItem>
                 <ProjectItem ReplaceParameters="true" TargetFileName="SwaggerConfig.cs">SwaggerConfig.cs</ProjectItem>
@@ -43,8 +46,7 @@
             <ProjectItem ReplaceParameters="true" TargetFileName="appsettings.json">appsettings.json</ProjectItem>
             <ProjectItem ReplaceParameters="true" TargetFileName="appsettings.Development.json">appsettings.Development.json</ProjectItem>            
             <ProjectItem ReplaceParameters="true" TargetFileName="Program.cs">Program.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="Startup.cs">Startup.cs</ProjectItem>
-            <ProjectItem ReplaceParameters="true" TargetFileName="WeatherForecast.cs">WeatherForecast.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="Startup.cs">Startup.cs</ProjectItem>            
         </Project>
     </TemplateContent>
 </VSTemplate>
