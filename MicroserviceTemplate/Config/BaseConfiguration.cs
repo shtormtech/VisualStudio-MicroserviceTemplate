@@ -1,6 +1,6 @@
-﻿using MicroserviceTemplate.Config;
+﻿using $safeprojectname$.Config;
 
-namespace MicroServiceTemplate
+namespace $safeprojectname$
 {
     /// <summary>
     /// Основная конфигураия сервиса

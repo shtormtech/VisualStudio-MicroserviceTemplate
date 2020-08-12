@@ -1,10 +1,10 @@
-﻿using MicroServiceTemplate.Models;
+﻿using $safeprojectname$.Models;
 
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace MicroServiceTemplate.Interfaces
+namespace $safeprojectname$.Interfaces
 {
     public interface IWeatherForecastService
     {

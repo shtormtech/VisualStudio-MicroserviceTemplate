@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.IO;
 
-using MicroserviceTemplate.Config;
+using $safeprojectname$.Config;
 
-using MicroServiceTemplate.Interfaces;
-using MicroServiceTemplate.Services;
+using $safeprojectname$.Interfaces;
+using $safeprojectname$.Services;
 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -15,7 +15,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 
-namespace MicroServiceTemplate
+namespace $safeprojectname$
 {
     public class Startup
     {

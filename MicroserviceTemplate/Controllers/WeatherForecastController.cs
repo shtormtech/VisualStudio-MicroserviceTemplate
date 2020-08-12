@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-using MicroServiceTemplate.Interfaces;
-using MicroServiceTemplate.Models;
+using $safeprojectname$.Interfaces;
+using $safeprojectname$.Models;
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace MicroServiceTemplate.Controllers
+namespace $safeprojectname$.Controllers
 {
     [ApiController]
     [Route("[controller]")]

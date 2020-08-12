@@ -1,5 +1,5 @@
-﻿using MicroServiceTemplate.Interfaces;
-using MicroServiceTemplate.Models;
+﻿using $safeprojectname$.Interfaces;
+using $safeprojectname$.Models;
 
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MicroServiceTemplate.Services
 {
-    public class WeatherForecastService : IWeatherForecastService
+    public class WeatherForecastService : $safeprojectname$
     {
         private static readonly string[] Summaries = new[]
 {
