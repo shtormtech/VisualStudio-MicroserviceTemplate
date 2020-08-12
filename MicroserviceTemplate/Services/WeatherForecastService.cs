@@ -7,9 +7,9 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace MicroServiceTemplate.Services
+namespace $safeprojectname$.Services
 {
-    public class WeatherForecastService : $safeprojectname$
+    public class WeatherForecastService : IWeatherForecastService
     {
         private static readonly string[] Summaries = new[]
 {
